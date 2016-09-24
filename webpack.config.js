@@ -3,6 +3,7 @@ var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'public');
 var APP_DIR = path.resolve(__dirname, 'src');
+var ASSET_DIR = path.resolve(__dirname, 'assets');
 
 module.exports = {
     entry: APP_DIR + '/index.jsx',
@@ -22,8 +23,8 @@ module.exports = {
                 loader: 'babel'
             },
             {
-                test: /\.png/,
-                include: APP_DIR,
+                test: /\.(jpe?g|png)$/i,
+                include: ASSET_DIR,
                 loader: 'file'
             },
             {

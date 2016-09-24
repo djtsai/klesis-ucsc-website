@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
-import headerIcon from '../../assets/header/headerIcon.png'
+import headerIcon from '../../../assets/components/header/header_icon.png'
 
 import './header.scss'
 
@@ -17,7 +17,7 @@ const Header = React.createClass({
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav pullRight>
-                        <NavItem href="/">Photos</NavItem>
+                        <NavItem href="https://www.flickr.com/photos/gracepointsantacruz/">Photos</NavItem>
                     </Nav>
                     <Nav pullRight>
                         <NavItem href="/">Contact</NavItem>
