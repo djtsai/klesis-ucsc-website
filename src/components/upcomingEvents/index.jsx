@@ -11,7 +11,8 @@ export const UpcomingEvents = React.createClass({
                 eventName: PropTypes.node,
                 eventTime: PropTypes.node,
                 eventLocation: PropTypes.node,
-                eventOther: PropTypes.node
+                eventOther: PropTypes.node,
+                eventImageUrl: PropTypes.string
             })
         )
     },
@@ -54,7 +55,8 @@ export const UpcomingEvent = React.createClass({
             eventName: PropTypes.node,
             eventTime: PropTypes.node,
             eventLocation: PropTypes.node,
-            eventOther: PropTypes.node
+            eventOther: PropTypes.node,
+            eventImageUrl: PropTypes.string
         }).isRequired,
         columnWidth: PropTypes.number.isRequired
     },
@@ -69,6 +71,7 @@ export const UpcomingEvent = React.createClass({
                 md={ columnWidth }
                 lg={ columnWidth }
             >
+                <img className="upcoming-event-image" src={ event.eventImageUrl }/>
                 <p className="upcoming-event-name">{ event.eventName }</p>
                 <p className="upcoming-event-time">{ event.eventTime }</p>
                 <p className="upcoming-event-location">{ event.eventLocation }</p>
