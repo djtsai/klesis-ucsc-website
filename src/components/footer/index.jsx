@@ -15,7 +15,7 @@ const Footer = React.createClass({
                     <SocialLink name="Facebook" url="https://www.facebook.com/klesissantacruz"/>
                     <SocialLink name="Instagram" url="https://www.instagram.com/klesis_ucsantacruz/"/>
                     <SocialLink name="Flickr" url="https://www.flickr.com/photos/gracepointsantacruz/"/>
-                    <SocialLink name="Gracepoint Berkeley" url="http://gracepointonline.org/"/>
+                    <SocialLink name="Gracepoint Berkeley" url="http://www.gracepointonline.org/"/>
                 </SocialLinks>
             </div>
         )

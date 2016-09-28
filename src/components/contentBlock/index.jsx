@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 import './contentBlock.scss'
 
@@ -10,10 +11,14 @@ const ContentBlock = React.createClass({
 
     render() {
         return (
-            <div className="content-block">
-                <h3>{ this.props.header }</h3>
+            <Grid className="content-block">
+                <Row>
+                    <Col sm={ 12 } md={ 12 } lg={ 12 }>
+                        <h3>{ this.props.header }</h3>
+                    </Col>
+                </Row>
                 { this.props.children }
-            </div>
+            </Grid>
         )
     }
 })

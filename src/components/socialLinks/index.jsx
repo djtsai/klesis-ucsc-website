@@ -1,22 +1,31 @@
 import React, { PropTypes } from 'react'
 
 export const SocialLinks = React.createClass({
+    propTypes: {
+        delimiter: PropTypes.node
+    },
+
+    getDefaultProps() {
+        return {
+            delimiter: " | "
+        }
+    },
+
     generateList() {
         const list = []
-        const lastIndex = React.Children.count(this.props.children) - 1
         React.Children.forEach(this.props.children, (child, index) => {
-            list.push(<span key={ child.props.name }>{ child }</span>)
-            if (lastIndex !== index) {
-                list.push(<span key={ child.props.name + index }> | </span>)
-            }
+            list.push(React.cloneElement(child, { key: child.props.name }))
+            list.push(<span key={ child.props.name + index }>{ this.props.delimiter }</span>)
         })
+
+        list.pop()
 
         return list
     },
 
     render() {
         return (
-            <div id="social-links">
+            <div className="social-links">
                 { this.generateList() }
             </div>
         )

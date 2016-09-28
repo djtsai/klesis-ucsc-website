@@ -1,0 +1,13 @@
+.upcoming-event {
+  text-align: center;
+  .upcoming-event-name {
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+  }
+  .upcoming-event-time, .upcoming-event-location, .upcoming-event-other {
+    font-size: 16px;
+    color: #777;
+    font-weight: bold;
+  }
+}
