@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import { Row, Col } from 'react-bootstrap'
+import LightboxTrigger from '../lightboxTrigger'
 
 import './upcomingEvents.scss'
 
@@ -12,7 +13,8 @@ export const UpcomingEvents = React.createClass({
                 eventTime: PropTypes.node,
                 eventLocation: PropTypes.node,
                 eventOther: PropTypes.node,
-                eventImageUrl: PropTypes.string
+                eventImageUrl: PropTypes.string,
+                eventLocationImage: PropTypes.string
             })
         )
     },
@@ -56,7 +58,8 @@ export const UpcomingEvent = React.createClass({
             eventTime: PropTypes.node,
             eventLocation: PropTypes.node,
             eventOther: PropTypes.node,
-            eventImageUrl: PropTypes.string
+            eventImageUrl: PropTypes.string,
+            eventLocationImage: PropTypes.string
         }).isRequired,
         columnWidth: PropTypes.number.isRequired
     },
@@ -72,11 +75,22 @@ export const UpcomingEvent = React.createClass({
                 lg={ columnWidth }
             >
                 <img className="upcoming-event-image" src={ event.eventImageUrl }/>
-                <p className="upcoming-event-name">{ event.eventName }</p>
-                <p className="upcoming-event-time">{ event.eventTime }</p>
-                <p className="upcoming-event-location">{ event.eventLocation }</p>
+                <div className="upcoming-event-name">{ event.eventName }</div>
+                <div className="upcoming-event-time">{ event.eventTime }</div>
+                { event.eventLocationImage ? (
+                    <LightboxTrigger
+                        imageData={[
+                            { src: event.eventLocationImage, caption: event.eventLocation }
+                        ]}
+                        customClassName="upcoming-event-location"
+                    >
+                        { event.eventLocation }
+                    </LightboxTrigger>
+                ) : (
+                    <div className="upcoming-event-location">{ event.eventLocation }</div>
+                ) }
                 { event.eventOther ? (
-                    <p className="upcoming-event-other">{ event.eventOther }</p>
+                    <div className="upcoming-event-other">{ event.eventOther }</div>
                 ) : (
                     null
                 ) }
