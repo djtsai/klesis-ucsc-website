@@ -1,7 +1,7 @@
 import React from 'react'
 import BannerImage from '../../components/bannerImage'
 import ContentBlock from '../../components/contentBlock'
-import { UpcomingEvents } from '../../components/upcomingEvents'
+import { UpcomingEvents, UpcomingEvent } from '../../components/upcomingEvents'
 
 import bannerImage from '../../../assets/components/bannerImage/web_banner_20160915.jpg'
 
@@ -17,6 +17,9 @@ const HomeContainer = React.createClass({
                         <UpcomingEvents
                             showNumEvents={ 4 }
                             eventsData={ upcomingEventsData }
+                            renderUpcomingEvent={ (event, columnWidth) =>
+                                <UpcomingEvent event={ event } columnWidth={ columnWidth } key={ event.eventName }/>
+                            }
                         />
                     </ContentBlock>
                 </div>

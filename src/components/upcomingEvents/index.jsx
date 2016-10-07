@@ -16,13 +16,19 @@ export const UpcomingEvents = React.createClass({
                 eventImageUrl: PropTypes.string,
                 eventLocationImage: PropTypes.string
             })
-        )
+        ),
+        renderUpcomingEvent: PropTypes.func
     },
 
     getDefaultProps() {
         return {
             showNumEvents: 3,
-            eventsData: []
+            eventsData: [],
+            renderEvent: (event, columnWidth) => {
+                return (
+                    <UpcomingEvent event={ event } columnWidth={ columnWidth } key={ event.eventName }/>
+                )
+            }
         }
     },
 
@@ -32,9 +38,7 @@ export const UpcomingEvents = React.createClass({
 
         for (let i = 0; i < this.props.showNumEvents; i ++) {
             const event = this.props.eventsData[i]
-            upcomingEvents.push(
-                <UpcomingEvent event={ event } columnWidth={ columnWidth } key={ event.eventName }/>
-            )
+            upcomingEvents.push(this.props.renderUpcomingEvent(event, columnWidth))
         }
 
         return upcomingEvents
